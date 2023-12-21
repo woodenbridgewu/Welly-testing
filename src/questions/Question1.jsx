@@ -8,9 +8,9 @@ function Question1() {
     setOutput(reverseString(input.target.value));
   }
 
-  const reverseString = (str) => {
+  function reverseString(str) {
     return str.split("").reverse().join("");
-  };
+  }
   return (
     <BoxModal>
       <h3>問題1 字串反轉</h3>
