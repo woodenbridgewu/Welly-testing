@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import BoxContainer from "./modals/BoxContainer";
+import Question1 from "./questions/Question1";
+import Question2 from "./questions/Question2";
+import Question3 from "./questions/Question3";
+import Question5 from "./questions/Question5";
+import ExpandableSection from "./components/ExpandableSection";
 
 function App() {
+  const [isExpanded, setIsExpanded] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BoxContainer>
+      <ExpandableSection
+        isExpanded={isExpanded}
+        setIsExpanded={setIsExpanded}
+      />
+      {isExpanded && (
+        <div className="questions-container">
+          <Question1 />
+          <Question2 />
+          <Question3 />
+          <Question5 />
+        </div>
+      )}
+    </BoxContainer>
   );
 }
 
